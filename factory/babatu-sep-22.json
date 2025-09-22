@@ -1,0 +1,9 @@
+{
+	"name": "babatu-sep-22",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cf11f147-0c06-44bc-baf2-b81ae9f5bc58",
+		"tenantId": "50c950a3-662a-4527-ba9b-42db62e8fc2e"
+	}
+}
