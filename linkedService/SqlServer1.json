@@ -1,0 +1,27 @@
+{
+	"name": "SqlServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"Databasename": {
+				"type": "String",
+				"defaultValue": "Adventureworks2022"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "LAPTOP-O4HIR252",
+			"database": "@{linkedService().Databasename}",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "dipankar",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0M2ExMDE0YS1jNDkzLTRjNzgtYjVmOS0yNTI0NGVhM2M4MDUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "sefhostedonpremsqlserver",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
