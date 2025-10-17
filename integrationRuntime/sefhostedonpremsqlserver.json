@@ -1,0 +1,6 @@
+{
+	"name": "sefhostedonpremsqlserver",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
