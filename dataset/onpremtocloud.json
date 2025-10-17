@@ -1,0 +1,30 @@
+{
+	"name": "onpremtocloud",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schemacloud": {
+				"type": "string"
+			},
+			"sinkfilename": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schemacloud",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().sinkfilename",
+				"type": "Expression"
+			}
+		}
+	}
+}

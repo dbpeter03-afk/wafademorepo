@@ -1,0 +1,123 @@
+{
+	"name": "Loading multiples from onprem sol1",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('listoftables')",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "AzureSqlSink",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "onpremadv",
+									"type": "DatasetReference",
+									"parameters": {
+										"schema": {
+											"value": "@item().sourceschema",
+											"type": "Expression"
+										},
+										"table": {
+											"value": "@item().sourcetablename",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "onpremtocloud",
+									"type": "DatasetReference",
+									"parameters": {
+										"schemacloud": {
+											"value": "@item().sourceschema",
+											"type": "Expression"
+										},
+										"sinkfilename": {
+											"value": "@item().sinkfilename",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"listoftables": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"sourceschema": "Purchasing",
+						"sourcetablename": "ShipMethod",
+						"sinkfilename": "ShipMethod"
+					},
+					{
+						"sourceschema": "Purchasing",
+						"sourcetablename": "ProductVendor",
+						"sinkfilename": "ProductVendor"
+					},
+					{
+						"sourceschema": "Purchasing",
+						"sourcetablename": "Vendor",
+						"sinkfilename": "Vendor"
+					},
+					{
+						"sourceschema": "Purchasing",
+						"sourcetablename": "PurchaseOrderDetail",
+						"sinkfilename": "PurchaseOrderDetail"
+					},
+					{
+						"sourceschema": "Purchasing",
+						"sourcetablename": "PurchaseOrderHeader",
+						"sinkfilename": "PurchaseOrderHeader"
+					}
+				]
+			}
+		},
+		"annotations": []
+	}
+}
