@@ -1,0 +1,38 @@
+{
+	"name": "set variable",
+	"properties": {
+		"activities": [
+			{
+				"name": "dec_sets_CY",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "varyz",
+					"value": {
+						"value": "@add(variables('varx'),variables('vary'))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"varx": {
+				"type": "Integer",
+				"defaultValue": 5
+			},
+			"vary": {
+				"type": "Integer",
+				"defaultValue": 10
+			},
+			"varyz": {
+				"type": "Integer"
+			}
+		},
+		"annotations": []
+	}
+}

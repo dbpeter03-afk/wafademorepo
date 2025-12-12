@@ -1,17 +1,25 @@
 {
-	"name": "sourcedataset",
+	"name": "Dataset_parameter",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Blopbbabatu",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename_DS": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "country.csv",
-				"container": "source"
+				"fileName": {
+					"value": "@dataset().filename_DS",
+					"type": "Expression"
+				},
+				"container": "sampledata"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -20,11 +28,7 @@
 		},
 		"schema": [
 			{
-				"name": "Name",
-				"type": "String"
-			},
-			{
-				"name": "Code",
+				"name": "Industry",
 				"type": "String"
 			}
 		]
