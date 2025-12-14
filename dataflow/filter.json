@@ -1,0 +1,74 @@
+{
+	"name": "filter",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Dataflow_sample_data_emp",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqcustomerdata",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "filter1"
+				},
+				{
+					"name": "sort1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EMPLOYEE_ID as string,",
+				"          FIRST_NAME as string,",
+				"          LAST_NAME as string,",
+				"          EMAIL as string,",
+				"          PHONE_NUMBER as string,",
+				"          HIRE_DATE as string,",
+				"          JOB_ID as string,",
+				"          SALARY as integer,",
+				"          COMMISSION_PCT as string,",
+				"          MANAGER_ID as string,",
+				"          DEPARTMENT_ID as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          CustomerID as integer,",
+				"          NameStyle as boolean,",
+				"          Title as string,",
+				"          FirstName as string,",
+				"          MiddleName as string,",
+				"          LastName as string,",
+				"          Suffix as string,",
+				"          CompanyName as string,",
+				"          SalesPerson as string,",
+				"          EmailAddress as string,",
+				"          Phone as string,",
+				"          PasswordHash as string,",
+				"          PasswordSalt as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source2",
+				"sort1 filter(DEPARTMENT_ID==30 && SALARY>=2600) ~> filter1",
+				"source1 sort(desc(SALARY, true)) ~> sort1"
+			]
+		}
+	}
+}
