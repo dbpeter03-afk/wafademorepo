@@ -1,0 +1,30 @@
+{
+	"name": "DS_Blob_sample",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Blopbbabatu",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "dec_test"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "sampledata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Industry",
+				"type": "String"
+			}
+		]
+	}
+}
