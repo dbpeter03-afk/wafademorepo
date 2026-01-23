@@ -1,5 +1,5 @@
 {
-	"name": "trigger2",
+	"name": "Endofmonth",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -15,7 +15,7 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Month",
-				"interval": 15,
+				"interval": 1,
 				"startTime": "2026-01-23T01:31:00",
 				"timeZone": "India Standard Time",
 				"schedule": {
