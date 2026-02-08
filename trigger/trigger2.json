@@ -1,0 +1,38 @@
+{
+	"name": "trigger2",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "copydata",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Week",
+				"interval": 14,
+				"startTime": "2026-02-08T09:40:00",
+				"timeZone": "India Standard Time",
+				"schedule": {
+					"minutes": [
+						40
+					],
+					"hours": [
+						9
+					],
+					"weekDays": [
+						"Sunday",
+						"Tuesday",
+						"Thursday",
+						"Saturday"
+					]
+				}
+			}
+		}
+	}
+}
