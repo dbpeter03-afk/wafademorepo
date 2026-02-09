@@ -54,6 +54,9 @@
 				"type": "Array"
 			}
 		},
+		"folder": {
+			"name": "Dec_test"
+		},
 		"annotations": []
 	}
 }

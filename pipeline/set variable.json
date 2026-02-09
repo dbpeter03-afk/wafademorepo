@@ -33,6 +33,9 @@
 				"type": "Integer"
 			}
 		},
+		"folder": {
+			"name": "Dec_test"
+		},
 		"annotations": []
 	}
 }
