@@ -5,6 +5,9 @@
 			"referenceName": "Blopbbabatu",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "dec_test"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

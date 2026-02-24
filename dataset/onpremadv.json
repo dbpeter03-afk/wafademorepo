@@ -16,6 +16,9 @@
 				"type": "String"
 			}
 		},
+		"folder": {
+			"name": "dec_test"
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [],

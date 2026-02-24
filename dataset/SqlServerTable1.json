@@ -8,6 +8,9 @@
 				"Databasename": "Adventureworks2022"
 			}
 		},
+		"folder": {
+			"name": "dec_test"
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [
