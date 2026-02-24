@@ -1,0 +1,19 @@
+{
+	"name": "source_to_sql_table_and_archieve",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Babatu_database",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Feb_techBrothers"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "emp"
+		}
+	}
+}

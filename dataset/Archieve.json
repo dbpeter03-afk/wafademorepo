@@ -1,0 +1,25 @@
+{
+	"name": "Archieve",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Blopbbabatu",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Feb_techBrothers"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "archieve"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

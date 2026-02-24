@@ -1,0 +1,34 @@
+{
+	"name": "Copy_file_and_delete_from_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Blopbbabatu",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Feb_techBrothers"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "Code",
+				"type": "String"
+			}
+		]
+	}
+}
