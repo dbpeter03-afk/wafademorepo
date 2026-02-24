@@ -1,0 +1,60 @@
+{
+	"name": "Load_to_sql_according_to_filename",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get the file names",
+				"description": "Get the filenames from blob source location",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "Copy_file_and_delete_from_source",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"childItems"
+					],
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get the file names",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get the file names').output.childItems.name",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "Feb_techbrothers"
+		},
+		"annotations": []
+	}
+}
